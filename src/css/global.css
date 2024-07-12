@@ -1,0 +1,46 @@
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#view_91 .kn-table-wrapper,
+#view_119 .kn-table-wrapper,
+#view_126 .kn-table-wrapper,
+#view_136 .kn-table-wrapper,
+#view_142 .kn-table-wrapper,
+#view_152 .kn-table-wrapper,
+#view_170 .kn-table-wrapper,
+#view_178 .kn-table-wrapper,
+#view_205 .kn-table-wrapper,
+#view_246 .kn-table-wrapper,
+#view_293 .kn-table-wrapper,
+#view_394 .kn-table-wrapper,
+#view_402 .kn-table-wrapper,
+#view_379 .kn-table-wrapper,
+#view_427 .kn-table-wrapper,
+#view_430 .kn-table-wrapper,
+#view_441 .kn-table-wrapper,
+#view_456 .kn-table-wrapper,
+#view_458 .kn-table-wrapper,
+#view_460 .kn-table-wrapper,
+#view_462 .kn-table-wrapper,
+#view_471 .kn-table-wrapper,
+#view_476 .kn-table-wrapper,
+#view_480 .kn-table-wrapper,
+#view_511 .kn-table-wrapper,
+#view_550 .kn-table-wrapper,
+#view_553 .kn-table-wrapper,
+#view_563 .kn-table-wrapper,
+#view_564 .kn-table-wrapper,
+#view_567 .kn-table-wrapper,
+#view_603 .kn-table-wrapper,
+#view_604 .kn-table-wrapper,
+#view_605 .kn-table-wrapper,
+#view_606 .kn-table-wrapper,
+#view_607 .kn-table-wrapper,
+#view_608 .kn-table-wrapper,
+#view_609 .kn-table-wrapper,
+#view_170 .kn-table-wrapper {
+  max-height: 80vh;
+}
