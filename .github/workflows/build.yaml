@@ -34,8 +34,3 @@ jobs:
           NODENV_ROOT: ${{ env.NODENV_ROOT }}
         run: |
           npm run build-production
-
-      - name: Serve Webpack
-        env:
-          NODENV_ROOT: ${{ env.NODENV_ROOT }}
-        run: npm run serve
