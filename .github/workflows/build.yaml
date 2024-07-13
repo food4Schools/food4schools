@@ -18,14 +18,16 @@ jobs:
           export PATH="$HOME/.nodenv/bin:$PATH"
           which nodenv
           eval "$(nodenv init -)"
-          eval "nodenv install $(cat ../../node-version)"
-          eval "nodenv global $(cat ../../node-version)"
+          eval "nodenv install $(cat .node-version)"
+          eval "nodenv global $(cat .node-version)"
 
       - name: Install dependencies
         run: npm install
 
       - name: Build App
-        run: npm run build-production
+        run: |
+          echo "Node version: $(node -v)"
+          npm run build-production
 
       - name: Serve Webpack
         run: npm serve
