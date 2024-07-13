@@ -27,19 +27,15 @@ jobs:
         env:
           NODENV_ROOT: ${{ env.NODENV_ROOT }}
         run: |
-          echo "Node version before npm install: $(node -v)"
-          eval "$(nodenv init -)"
-          echo "Node version before npm install: $(node -v)"
           npm install
 
       - name: Build App
         env:
           NODENV_ROOT: ${{ env.NODENV_ROOT }}
         run: |
-          echo "Node version: $(node -v)"
           npm run build-production
 
       - name: Serve Webpack
         env:
           NODENV_ROOT: ${{ env.NODENV_ROOT }}
-        run: npm serve
+        run: npm run serve
