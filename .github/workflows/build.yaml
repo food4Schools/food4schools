@@ -20,6 +20,8 @@ jobs:
           eval "$(nodenv init -)"
           eval "nodenv install $(cat .node-version)"
           eval "nodenv global $(cat .node-version)"
+          echo "PATH=$HOME/.nodenv/bin:$PATH" >> $GITHUB_ENV
+          echo 'eval "$(nodenv init -)"' >> $GITHUB_ENV
 
       - name: Install dependencies
         run: |
