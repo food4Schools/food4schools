@@ -21,9 +21,11 @@ jobs:
           eval "nodenv install $(cat .node-version)"
           eval "nodenv global $(cat .node-version)"
           echo "PATH=$HOME/.nodenv/bin:$PATH" >> $GITHUB_ENV
-          echo 'eval "$(nodenv init -)"' >> $GITHUB_ENV
+          echo "NODENV_ROOT=$HOME/.nodenv" >> $GITHUB_ENV
 
       - name: Install dependencies
+        env:
+          NODENV_ROOT: ${{ env.NODENV_ROOT }}
         run: |
           echo "Node version before npm install: $(node -v)"
           eval "$(nodenv init -)"
@@ -31,9 +33,13 @@ jobs:
           npm install
 
       - name: Build App
+        env:
+          NODENV_ROOT: ${{ env.NODENV_ROOT }}
         run: |
           echo "Node version: $(node -v)"
           npm run build-production
 
       - name: Serve Webpack
+        env:
+          NODENV_ROOT: ${{ env.NODENV_ROOT }}
         run: npm serve
