@@ -1,0 +1,31 @@
+name: CI for commits
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup nodenv
+        run: |
+          git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+          git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
+          chmod +x ~/.nodenv/bin/nodenv
+          export PATH="$HOME/.nodenv/bin:$PATH"
+          which nodenv
+          eval "$(nodenv init -)"
+          eval "nodenv install $(cat .node-version)"
+          eval "nodenv global $(cat .node-version)"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build App
+        run: npm run build-productiond
+
+      - name: Serve Webpack
+        run: npm serve
