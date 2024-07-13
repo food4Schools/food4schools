@@ -36,4 +36,4 @@ jobs:
           npm run build-production
 
       - name: Serve
-        run: npx run serve
+        run: npx webpack
