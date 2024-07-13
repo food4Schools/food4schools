@@ -22,7 +22,11 @@ jobs:
           eval "nodenv global $(cat .node-version)"
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          echo "Node version before npm install: $(node -v)"
+          eval "$(nodenv init -)"
+          echo "Node version before npm install: $(node -v)"
+          npm install
 
       - name: Build App
         run: |
