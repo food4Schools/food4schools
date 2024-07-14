@@ -3,7 +3,7 @@ import { StagingServer } from "src/constants/server";
 /**
  *  - any
  */
-$(document).on("knack-scene-render.scene_108", function (event, scene) {
+$(document).on("knack-view-render.view_203", function (event, scene) {
 	const nodes = document.getElementsByClassName('kn-button is-primary');
 		if (nodes.length > 0) {
 			const submitButton = nodes[0];
