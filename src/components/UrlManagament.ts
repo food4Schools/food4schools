@@ -1,4 +1,4 @@
-class UrlManagement {
+export class UrlManagement {
     createExternalLink(url, href) {
         const node = document.querySelectorAll(`a[href='${href}']`);
         if (node.length > 0) {
