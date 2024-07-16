@@ -5,9 +5,6 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        environment: [staging, production]
 
     steps:
       - name: Checkout code
@@ -32,15 +29,6 @@ jobs:
         run: |
           npm install
 
-      - name: Load environment variables
-        run: |
-          if [ "${{ matrix.environment }}" == "staging" ]; then
-            cp .env.staging .env
-          else
-            cp .env.production .env
-          fi
-        shell: bash
-
       - name: Build App
         env:
           NODENV_ROOT: ${{ env.NODENV_ROOT }}
@@ -50,16 +38,12 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: build-artifacts-${{ matrix.environment }}
+          name: build-artifacts
           path: ./dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        environment: [staging, production]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
