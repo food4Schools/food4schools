@@ -5,6 +5,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [staging, production]
 
     steps:
       - name: Checkout code
@@ -29,6 +32,15 @@ jobs:
         run: |
           npm install
 
+      - name: Load environment variables
+        run: |
+          if [ "${{ matrix.environment }}" == "staging" ]; then
+            cp .env.staging .env
+          else
+            cp .env.production .env
+          fi
+        shell: bash
+
       - name: Build App
         env:
           NODENV_ROOT: ${{ env.NODENV_ROOT }}
@@ -38,12 +50,16 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: build-artifacts
+          name: build-artifacts-${{ matrix.environment }}
           path: ./dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [staging, production]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -51,7 +67,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
-          name: build-artifacts
+          name: build-artifacts-${{ matrix.environment }}
           path: ./dist
 
       - name: Deploy to GitHub Pages
@@ -59,3 +75,4 @@ jobs:
         with:
           github_token: ${{ secrets.DEPLOY_PAGES_TOKEN }}
           publish_dir: ./dist
+          publish_branch: ${{ matrix.environment }}-gh-pages

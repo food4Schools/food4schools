@@ -36,6 +36,7 @@
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "babel-loader": "^8.2.2",
     "dayjs": "^1.11.10",
+    "dotenv": "^16.4.5",
     "knack-api": "^1.0.25",
     "style-loader": "^3.3.1",
     "sweetalert2": "^11.10.1",

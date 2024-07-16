@@ -1,5 +1,3 @@
-import { getUrlBase, ProductionServer, StagingServer } from "src/constants/server";
-
 /**
  *  - any
  */
@@ -9,7 +7,9 @@ $(document).on("knack-view-render.view_203", function (event, scene) {
 			const submitButton = nodes[0];
 			const url = submitButton.getAttribute('data-url');
 			(submitButton as any).onclick = function (e) {
-				fetch(`${getUrlBase() === 'staging' ? StagingServer.baseUrl : ProductionServer.baseUrl}/api/v1/projections`, {
+				const url = `${process.env.BASE_URL}/api/v1/projections`;
+				console.log(url);
+				fetch(url, {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
