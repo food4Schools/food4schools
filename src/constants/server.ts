@@ -11,8 +11,8 @@ export namespace ProductionServer{
 export function getUrlBase(): Env {
 	const el = document.getElementsByClassName('knHeader__content')[0];
 	if (el) {
-		const baseUri = el.baseURI.split('#')[0].split('/')[-1];
-		return baseUri === 'spencer-test-app' ? 'staging' :'production';
+		const baseUri = el.baseURI.split('#')[0].split('/')[3];
+		return baseUri === 'lisnda' ? 'production' : 'staging';
 	}
 	return null;
 }
