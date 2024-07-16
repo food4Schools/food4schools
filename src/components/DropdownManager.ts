@@ -10,7 +10,7 @@ export class DropdownManager {
     constructor(private readonly urlManager: UrlManager){}
 
 	createDropdownItem({url, siblingHref, text}: CreateDropdownItemParams) {
-        const siblingNode = document.querySelectorAll(siblingHref);
+        const siblingNode = document.querySelectorAll(`a[href='${siblingHref}']`);
         if (siblingNode?.length >= 1) {
             const dropdownMenu = siblingNode[0].parentNode.parentNode;
             const item = document.createElement('a.knHeader__menu-link.knHeader__menu-dropdown-link');
