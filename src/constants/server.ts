@@ -14,5 +14,5 @@ export function getUrlBase(): Env {
 		const baseUri = el.baseURI.split('#')[0].split('/')[3];
 		return baseUri === 'lisnda' ? 'production' : 'staging';
 	}
-	return null;
+	return 'staging';
 }
