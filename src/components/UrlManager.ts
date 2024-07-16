@@ -11,12 +11,11 @@ export class UrlManager {
         }
     }
 
-    createExternalLinkWithNode(url: string, node: HTMLAnchorElement) {
-                node.onclick = function (e) {
-                e.preventDefault(); // prevent the knack click
-                e.stopPropagation(); // Prevent the click event from bubbling up
-                window.open(url, '_blank');
-            };
-
+    createExternalLinkWithNode(url: string, node: HTMLElement) {
+        node.onclick = function (e) {
+            e.preventDefault(); // prevent the knack click
+            e.stopPropagation(); // Prevent the click event from bubbling up
+            window.open(url, '_blank');
+        };
     }
 }
