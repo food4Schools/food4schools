@@ -1,7 +1,7 @@
 import { UrlManager } from "./UrlManager";
 
 export interface CreateDropdownItemParams {
-    url: string | URL;
+    url: string;
     siblingHref: string;
     text: string;
 }

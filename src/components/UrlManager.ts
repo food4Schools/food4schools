@@ -1,5 +1,5 @@
 export class UrlManager {
-    createExternalLink(url: string | URL, href: String) {
+    createExternalLink(url: string, href: String) {
         const node = document.querySelectorAll(`a[href='${href}']`);
         if (node.length > 0) {
 			const el = node[0];
@@ -11,7 +11,7 @@ export class UrlManager {
         }
     }
 
-    createExternalLinkWithNode(url: string | URL, node: HTMLAnchorElement) {
+    createExternalLinkWithNode(url: string, node: HTMLAnchorElement) {
                 node.onclick = function (e) {
                 e.preventDefault(); // prevent the knack click
                 e.stopPropagation(); // Prevent the click event from bubbling up
