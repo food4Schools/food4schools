@@ -6,7 +6,7 @@ const dropdownManager = new DropdownManager(urlManager);
 
 $(document).on("knack-page-render.any", function (page, records, view, data) {
 	const nyResourcesTargetPageURL =
-		"https://drive.google.com/drive/folders/1uGgUkYLI31GQ3Ga8T8ni_Cn71vZTlEVd";
+		"https://drive.google.com/drive/folders/1S1XcIYHBNczp4XeB7qLQHWbFiy6qsSDF";
 	// to add more links just find the href in the inspects and call this method again with the new link
 	urlManager.createExternalLink(nyResourcesTargetPageURL, "#ny-resources");
 
