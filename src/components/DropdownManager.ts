@@ -1,18 +1,21 @@
 import { UrlManager } from "./UrlManager";
 
 export interface CreateDropdownItemParams {
-	url: string;
 	siblingHref: string;
-	text: string;
+	siblingData: {
+		url: string;
+		text: string
+	}[]
 }
 
 export class DropdownManager {
 	private addedItemHeaders: String[] = [];
 	constructor(private readonly urlManager: UrlManager) {}
 
-	createDropdownItem({ url, siblingHref, text }: CreateDropdownItemParams) {
+	createDropdownItems({siblingHref, siblingData} : CreateDropdownItemParams) {
+		const siblingNode = document.querySelectorAll(`a[href='${siblingHref}']`);
+		for (const {url, text} of siblingData) {
 		if (!this.addedItemHeaders.includes(text)) {
-			const siblingNode = document.querySelectorAll(`a[href='${siblingHref}']`);
 			if (siblingNode?.length >= 1) {
 				const dropdownMenu = siblingNode[0].parentNode.parentNode;
 				const item = document.createElement(
@@ -27,7 +30,10 @@ export class DropdownManager {
 				this.urlManager.createExternalLinkWithNode(url, item);
 				dropdownMenu.appendChild(item);
 				this.addedItemHeaders.push(text);
+			} else {
+				console.warn(`No elements found for href: ${siblingHref}`);
 			}
 		}
+	}
 	}
 }
