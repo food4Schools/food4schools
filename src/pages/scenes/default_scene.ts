@@ -21,7 +21,7 @@ $(document).on("knack-page-render.any", function (page, records, view, data) {
 	urlManager.createExternalLink(nyResourcesTargetPageURL, "#ny-resources");
 
 	dropdownManager.createDropdownItems({
-		siblingHref: "#directors-contract-information-and-meal-prices",
+		siblingHref: "#ny-resources",
 		siblingData: Array.from(dropDownToUrlMap.entries()).map(([k, v]) => ({ url: v, text: k })),
 	});
 
