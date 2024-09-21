@@ -4,7 +4,6 @@ thead {
 	z-index: 1;
 }
 
-#view_91 .kn-table-wrapper,
 #view_119 .kn-table-wrapper,
 #view_126 .kn-table-wrapper,
 #view_136 .kn-table-wrapper,
@@ -15,9 +14,9 @@ thead {
 #view_205 .kn-table-wrapper,
 #view_246 .kn-table-wrapper,
 #view_293 .kn-table-wrapper,
+#view_379 .kn-table-wrapper,
 #view_394 .kn-table-wrapper,
 #view_402 .kn-table-wrapper,
-#view_379 .kn-table-wrapper,
 #view_427 .kn-table-wrapper,
 #view_430 .kn-table-wrapper,
 #view_441 .kn-table-wrapper,
@@ -44,6 +43,11 @@ thead {
 #view_760 .kn-table-wrapper,
 #view_815 .kn-table-wrapper,
 #view_817 .kn-table-wrapper,
-#view_170 .kn-table-wrapper {
+#view_91 .kn-table-wrapper,
+#view_918 .kn-table-wrapper,
+#view_919 .kn-table-wrapper,
+#view_930 .kn-table-wrapper,
+#view_931 .kn-table-wrapper,
+#view_934 .kn-table-wrapper {
 	max-height: 80vh;
 }
