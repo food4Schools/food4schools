@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build-production": "NODE_ENV=production webpack --mode=production",
+		"build-production-windows": "webpack --mode=production",
 		"build-development": "NODE_ENV=development webpack --mode=development",
 		"serve": "webpack serve"
 	},
