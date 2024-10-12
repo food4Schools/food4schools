@@ -1,5 +1,6 @@
 export class UrlManager {
     createExternalLink(url: string, href: String) {
+        var checks = 0;
         var checkForNode = setInterval(function() {
             const node = document.querySelectorAll(`a[href='${href}']`);
             if (node.length > 0) {
@@ -10,6 +11,11 @@ export class UrlManager {
                     e.stopPropagation(); // Prevent the click event from bubbling up
                     window.open(url, '_blank');
                 };
+            } else {
+                checks++;
+                if (checks >= 10) {
+                    clearInterval(checkForNode);  // Bail
+                }
             }
         }, 100);
     }
