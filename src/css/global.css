@@ -1,31 +1,33 @@
-/* Sticky headers for all views */
+/*
+Sticky headers for all views
 thead {
     position: sticky;
     top: 0;
-    z-index: 2; /* Ensures headers are on top */
-    background: #fff; /* To avoid transparency when scrolling */
+    z-index: 2;
+    background: #fff;
 }
+*/
 
 /* Sticky first column for enumerated views */
-#view_918 tbody tr > :first-child {
+/* #view_918 tbody tr > :first-child {
     position: sticky;
     z-index: 1;
     left: 0;
     background: #ddd;
     border-color: black;
-}
+} */
 
 /* Sticky top-left corner cell for enumerated views (header and first column) */
-#view_918 thead th:first-child{
+/* #view_918 thead th:first-child{
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 3; /* Ensure this is on top of everything else */
+    z-index: 3;
     background: #ddd;
-}
+} */
 
 /* Scrollable table wrapper with max height for all views */
-[id^="view_"] .kn-table-wrapper {
+/* [id^="view_"] .kn-table-wrapper {
     max-height: 80vh;
-    overflow: auto; /* Ensure the table is scrollable */
-}
+    overflow: auto;
+} */
