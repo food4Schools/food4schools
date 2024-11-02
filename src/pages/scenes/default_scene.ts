@@ -1,8 +1,10 @@
 import { UrlManager } from "src/components/UrlManager";
 import { DropdownManager } from "src/components/DropdownManager";
+import { ItemCountSelector } from "src/components/ItemCountSelector";
 
 const urlManager = new UrlManager();
 const dropdownManager = new DropdownManager(urlManager);
+const itemCountSelector = new ItemCountSelector();
 
 const dropDownToUrlMap = new Map<string, string>();
 dropDownToUrlMap.set(
@@ -22,7 +24,11 @@ $(document).on("knack-page-render.any", function (page, records, view, data) {
 
 	dropdownManager.createDropdownItems({
 		siblingHref: "#ny-resources",
-		siblingData: Array.from(dropDownToUrlMap.entries()).map(([k, v]) => ({ url: v, text: k })),
+		siblingData: Array.from(dropDownToUrlMap.entries()).map(([k, v]) => ({
+			url: v,
+			text: k,
+		})),
 	});
 
+	itemCountSelector.setDropdown();
 });
