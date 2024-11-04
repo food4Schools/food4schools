@@ -1,11 +1,10 @@
 export class ItemCountSelector {
-	setDropdown() {
+	setDropdown(numItems: number) {
 		let attempts = 0;
 		const maxAttempts = 5;
 		const interval = setInterval(function () {
 			$(".kn-select select[name='limit']").each(function () {
-				// Set the value to 1000
-				$(this).val("1000");
+				$(this).val(numItems.toString());
 
 				// Trigger the change event to apply the new selection
 				$(this).trigger("change");
