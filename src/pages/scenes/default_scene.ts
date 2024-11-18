@@ -30,5 +30,5 @@ $(document).on("knack-page-render.any", function (page, records, view, data) {
 		})),
 	});
 
-	itemCountSelector.setDropdown(250);
+	itemCountSelector.setDropdown(100);
 });
