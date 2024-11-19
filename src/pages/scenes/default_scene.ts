@@ -29,6 +29,4 @@ $(document).on("knack-page-render.any", function (page, records, view, data) {
 			text: k,
 		})),
 	});
-
-	itemCountSelector.setDropdown(100);
 });
